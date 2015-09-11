@@ -16,7 +16,6 @@ Package.onUse(function(api) {
       'namespace.js',
       'pai.js'
   ]);
-  api.export('PAI');
 });
 
 Package.onTest(function(api) {

@@ -16,12 +16,6 @@ Package.onUse(function(api) {
       'namespace.js',
       'professor.js'
   ]);
-
-  api.addFiles([
-      'views/login.html',
-  ], 'client');
-
-  api.export('PROFESSOR');
 });
 
 Package.onTest(function(api) {
