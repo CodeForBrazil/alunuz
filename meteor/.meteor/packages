@@ -4,8 +4,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
-dburles:google-maps
 twbs:bootstrap
 jquery
 underscore
@@ -19,3 +17,17 @@ accounts-password
 alanning:roles
 fortawesome:fontawesome
 yogiben:admin
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+vue:vue

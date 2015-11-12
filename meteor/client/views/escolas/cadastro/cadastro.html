@@ -1,0 +1,30 @@
+<template name="escolaCadastro">
+
+    <div class="col-md-5 col-md-offset-4" id="vue-escola-cadastro">
+        <h1>Nova Escola</h1>
+
+        <form v-bind:submit="salvar">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" v-model="nome" class="form-control" id="nome">
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" v-model="endereco" id="endereco" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="numero">Número</label>
+                        <input type="text" v-model="numero" id="numero" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-success" type="submit"> <i class="fa fa-save"></i> Cadastrar</button>
+        </form>
+    </div>
+
+</template>
