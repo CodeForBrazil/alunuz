@@ -1,5 +1,4 @@
 <template name="escolaCadastro">
-
     <div class="col-md-5 col-md-offset-4" id="vue-escola-cadastro">
         <h1>Nova Escola</h1>
 
@@ -43,6 +42,7 @@
                     <td>[[ escola.nome ]]</td>
                     <td>[[ escola.endereco ]], [[ escola.numero ]]</td>
                     <td> <button v-on:click="editar(escola)" class="btn btn-info"><i class="fa fa-edit"></i></button> </td>
+                    <td> <button v-on:click="deletar(escola)" class="btn btn-danger"><i class="fa fa-close"></i></button> </td>
                 </tr>
             </tbody>
         </table>

@@ -47,7 +47,7 @@ Template.escolaCadastro.rendered = function(){
                     return this.update();
                 };
 
-                Escolas.insert(this.form, function(error, _id){
+                Escolas.insert(_.omit(this.form, '_id'), function(error, _id){
                     vue.sending = false;
                     vue.dirty = false;
 
@@ -81,7 +81,38 @@ Template.escolaCadastro.rendered = function(){
                 this.editing = true;
                 this.form = doc;
                 $('#nome').focus();
-            }
+            },
+            delete : function(doc){
+
+                // Caso delete o item que está sendo editado
+                if (this.form._id == doc._id) {
+                    VueUtils.limparCampos(this.form);
+                }
+
+                Escolas.remove({ _id : doc._id }, function(err, b){
+                    if (err) {
+                        swal("Ops!", "Ocorreu algum problema e a escola não pode ser removida.", "error");
+                    }
+
+                    swal("Removida!", "A escola foi removida!.", "success");
+                })
+            },
+            // Logica da UI
+            deletar : function(doc){
+                var vue = this;
+
+                swal({
+                    title: "Tem certeza?",
+                    text: "Quer mesmo remover essa escola?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Sim, deletar!",
+                    closeOnConfirm: false
+                }, function() {
+                    vue.delete(doc);
+                });
+            },
         }
     });
 }

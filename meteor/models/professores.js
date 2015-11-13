@@ -26,7 +26,7 @@ ProfessoresSchema = new SimpleSchema({
         label : "Endereço",
     },
     numero : {
-        type : String,
+        type : Number,
         label : "Número",
     },
     carreira : {

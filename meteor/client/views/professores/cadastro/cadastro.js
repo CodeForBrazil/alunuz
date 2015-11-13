@@ -35,12 +35,12 @@ Template.professorCadastro.rendered = function(){
             validation : function (){
                 return {
                     nome : (this.dirty) ? !!this.form.nome.trim() : true,
-                    matricula : (this.dirty) ? !!this.form.matricula.trim() : true,
-                    cpf : (this.dirty) ? !!this.form.cpf.trim() : true,
+                    matricula : (this.dirty) ? this.form.matricula != '' : true,
+                    cpf : (this.dirty) ? this.form.cpf != '' : true,
                     telefone : (this.dirty) ? !!this.form.telefone.trim() : true,
                     email : (this.dirty) ? !!this.form.email.trim() : true,
                     endereco : (this.dirty) ? !!this.form.endereco.trim() : true,
-                    numero : (this.dirty) ? !!this.form.numero.trim() : true,
+                    numero : (this.dirty) ? this.form.numero != '' : true,
                     carreira : (this.dirty) ? !!this.form.carreira.trim() : true,
                     cargo : (this.dirty) ? !!this.form.cargo.trim() : true,
                     nivel : (this.dirty) ? !!this.form.nivel.trim() : true,
@@ -48,13 +48,13 @@ Template.professorCadastro.rendered = function(){
                     orgao_lotacao : (this.dirty) ? !!this.form.orgao_lotacao.trim() : true,
                     lotacao_trabalho : (this.dirty) ? !!this.form.lotacao_trabalho.trim() : true,
                     quadro : (this.dirty) ? !!this.form.quadro.trim() : true,
-                    carga_semanal : (this.dirty) ? !!this.form.carga_semanal.trim() : true,
+                    carga_semanal : (this.dirty) ? this.form.carga_semanal != '' : true,
                     formacao : (this.dirty) ? !!this.form.formacao.trim() : true,
                     rit : (this.dirty) ? !!this.form.rit.trim() : true,
                     permuta : (this.dirty) ? !!this.form.permuta.trim() : true,
                     convenio : (this.dirty) ? !!this.form.convenio.trim() : true,
-                    lat : (this.dirty) ? !!this.form.lat.trim() : true,
-                    lng : (this.dirty) ? !!this.form.lng.trim() : true,
+                    lat : (this.dirty) ? this.form.lat != '' : true,
+                    lng : (this.dirty) ? this.form.lng != '' : true,
                 }
             },
             isValid : function (){
@@ -83,7 +83,7 @@ Template.professorCadastro.rendered = function(){
                     return this.update();
                 };
 
-                Professores.insert(this.form, function(error, _id){
+                Professores.insert(_.omit(this.form, '_id'), function(error, _id){
                     vue.sending = false;
                     vue.dirty = false;
 
@@ -111,6 +111,37 @@ Template.professorCadastro.rendered = function(){
 
                     swal('Sucesso!', 'Professor atualizado!', 'success');
                     VueUtils.limparCampos(vue.form);
+                });
+            },
+            delete : function(doc){
+
+                // Caso delete o item que está sendo editado
+                if (this.form._id == doc._id) {
+                    VueUtils.limparCampos(this.form);
+                }
+
+                Professores.remove({ _id : doc._id }, function(err, b){
+                    if (err) {
+                        swal("Ops!", "Ocorreu algum problema e o professor não pode ser removido.", "error");
+                    }
+
+                    swal("Removido!", "O professor foi removido!.", "success");
+                })
+            },
+            // Logica da UI
+            deletar : function(doc){
+                var vue = this;
+
+                swal({
+                    title: "Tem certeza?",
+                    text: "Quer mesmo remover esse professor?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Sim, deletar!",
+                    closeOnConfirm: false
+                }, function() {
+                    vue.delete(doc);
                 });
             },
             editar : function(doc){

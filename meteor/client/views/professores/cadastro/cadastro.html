@@ -1,6 +1,6 @@
 <template name="professorCadastro">
     <div id="vue-professor-cadastro">
-        <div class="col-md-6 col-md-offset-4" >
+        <div class="col-md-6 col-md-offset-3" >
             <h1>Novo Professor</h1>
 
             <form v-on:submit.prevent="salvar">
@@ -109,23 +109,17 @@
                     <th>Matricula</th>
                     <th>CPF</th>
                     <th>Telefone</th>
-                    <th>Email</th>
+                    <th>E-mail</th>
                     <th>Endereço</th>
-                    <th>Numero</th>
                     <th>Carreira</th>
                     <th>Cargo</th>
                     <th>Nivel</th>
                     <th>Area_atuacao</th>
-                    <th>Orgao_lotacao</th>
-                    <th>Lotacao_trabalho</th>
+                    <th>Orgao Lotação</th>
+                    <th>Lotação Trabalho</th>
                     <th>Quadro</th>
-                    <th>Carga_semanal</th>
-                    <th>Formacao</th>
-                    <th>RIT</th>
-                    <th>Permuta</th>
-                    <th>Convenio</th>
-                    <th>Lat</th>
-                    <th>Lng</th>
+                    <th>Carga Semanal</th>
+                    <th>Formação</th>
                 </tr>
             </thead>
             <tbody>
@@ -135,8 +129,7 @@
                     <td>[[ doc.cpf ]]</td>
                     <td>[[ doc.telefone ]]</td>
                     <td>[[ doc.email ]]</td>
-                    <td>[[ doc.endereço ]]</td>
-                    <td>[[ doc.numero ]]</td>
+                    <td>[[ doc.endereco ]], [[ doc.numero ]]</td>
                     <td>[[ doc.carreira ]]</td>
                     <td>[[ doc.cargo ]]</td>
                     <td>[[ doc.nivel ]]</td>
@@ -146,12 +139,8 @@
                     <td>[[ doc.quadro ]]</td>
                     <td>[[ doc.carga_semanal ]]</td>
                     <td>[[ doc.formacao ]]</td>
-                    <td>[[ doc.rit ]]</td>
-                    <td>[[ doc.permuta ]]</td>
-                    <td>[[ doc.convenio ]]</td>
-                    <td>[[ doc.lat ]]</td>
-                    <td>[[ doc.lng ]]</td>
                     <td> <button v-on:click="editar(doc)" class="btn btn-info"><i class="fa fa-edit"></i></button> </td>
+                    <td> <button v-on:click="deletar(doc)" class="btn btn-danger"><i class="fa fa-close"></i></button> </td>
                 </tr>
             </tbody>
         </table>
