@@ -31,3 +31,7 @@ ejson
 spacebars
 check
 vue:vue
+insecure
+autopublish
+kevohagan:sweetalert
+chrismbeckett:toastr

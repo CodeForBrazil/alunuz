@@ -3,28 +3,50 @@
     <div class="col-md-5 col-md-offset-4" id="vue-escola-cadastro">
         <h1>Nova Escola</h1>
 
-        <form v-bind:submit="salvar">
-            <div class="form-group">
+        <form v-on:submit.prevent="salvar">
+            <div class="form-group" v-bind:class="{ 'has-error' : !validation.nome }">
                 <label for="nome">Nome</label>
-                <input type="text" v-model="nome" class="form-control" id="nome">
+                <input type="text" v-model="form.nome" class="form-control" id="nome" autofocus>
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <div class="form-group">
+                    <div class="form-group" v-bind:class="{ 'has-error' : !validation.endereco }">
                         <label for="endereco">Endereço</label>
-                        <input type="text" v-model="endereco" id="endereco" class="form-control">
+                        <input type="text" v-model="form.endereco" id="endereco" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group" v-bind:class="{ 'has-error' : !validation.numero }">
                         <label for="numero">Número</label>
-                        <input type="text" v-model="numero" id="numero" class="form-control">
+                        <input type="text" v-model="form.numero" id="numero" class="form-control">
                     </div>
                 </div>
             </div>
 
-            <button class="btn btn-success" type="submit"> <i class="fa fa-save"></i> Cadastrar</button>
+            <button class="btn btn-success" v-bind:disabled="sending" type="submit"> <i class="fa fa-save"></i> Salvar</button>
         </form>
+
+        <h4>Lista de escolas</h4>
+
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="escola in escolas">
+                    <td>[[ escola._id ]]</td>
+                    <td>[[ escola.nome ]]</td>
+                    <td>[[ escola.endereco ]], [[ escola.numero ]]</td>
+                    <td> <button v-on:click="editar(escola)" class="btn btn-info"><i class="fa fa-edit"></i></button> </td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 
 </template>
