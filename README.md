@@ -34,4 +34,4 @@ cd alunuz
 git subtree push --prefix meteor heroku master
 ```
 
-Nós usamos o heroku para fazer deploy da plataforma, então se você possui o heroku já configurado, caso não tenha configurado pode ver aqui [como fazer o deploy no heroku](http://blog.nerijunior.com/2015/09/22/meteor-heroku-como-fazer-o-deploy-instalacao/).
+Nós usamos o heroku para fazer deploy da plataforma, então se você possui o heroku já configurado é só executar o comando acima no diretório do alunuz, caso não tenha configurado pode ver aqui [como fazer o deploy no heroku](http://blog.nerijunior.com/2015/09/22/meteor-heroku-como-fazer-o-deploy-instalacao/).
