@@ -1,29 +1,37 @@
 # AlunuZ
 
-[ DESCRICAO DO PROJETO ]
+Gerenciamento escolar da A à Z
+
+Alunuz é uma plataforma para o gerencimento escolar seguindos os padrões brasileiros, modular e de fácil adaptação para qualquer outro tipo de gestão escolar.
+
+Feito usando pelo [Code For Curitiba](http://openbrazil.org) usando [Meteor](http://meteor.com)
 
 ### Índice
 
 - [Instalação](#instalacao)
-- [Metas](#metas)
+- [Contribuindo](#contribuindo)
+- [Deploy](#deploy)
 
 <a name="instalacao"></a>
 ### Instalacao
 
-<a name="metas"></a>
-### Metas
+```shell
+git clone https://github.com/CodeForBrazil/alunuz/
+cd alunuz/meteor
+meteor
+```
 
-#### Aluno
-- [ ] Flag caso o aluno falte 3 dias seguidos ou 5 dias alternados
+<a name="contribuindo"></a>
+### Contribuindo
 
-#### Frequencia
+Em [Issues](https://github.com/CodeForBrazil/alunuz/issues) existe uma lista de a itens a serem feitos ou corrigidos, sinta-se livre para contribuido com o projeto.
 
-#### Pai
-- [ ] Cadastro
-- [ ] Cadastro Social
-- [ ] Login
-- [ ] Cadastro de filhos em etapas de verificação para segurança
+<a name="deploy"></a>
+### Deploy
 
-#### Professor
-- [ ] Cadastro
-- [ ] Login
+```shell
+cd alunuz
+git subtree push --prefix meteor heroku master
+```
+
+Nós usamos o heroku para fazer deploy da plataforma, então se você possui o heroku já configurado, caso não tenha configurado pode ver aqui [como fazer o deploy no heroku](http://blog.nerijunior.com/2015/09/22/meteor-heroku-como-fazer-o-deploy-instalacao/).
