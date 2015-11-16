@@ -4,7 +4,7 @@ Gerenciamento escolar da A à Z
 
 AlunuZ é uma plataforma para gestão escolar seguindo os padrões brasileiros, modular e de fácil adaptação para qualquer outro tipo de gerenciamento.
 
-Feito usando pelo [Code For Curitiba](http://openbrazil.org) usando [Meteor](http://meteor.com)
+Feito pelo [Code For Curitiba](http://openbrazil.org) usando [Meteor](http://meteor.com)
 
 ### Índice
 
@@ -13,7 +13,7 @@ Feito usando pelo [Code For Curitiba](http://openbrazil.org) usando [Meteor](htt
 - [Deploy](#deploy)
 
 <a name="instalacao"></a>
-### Instalacao
+## Instalacao
 
 ```shell
 git clone https://github.com/CodeForBrazil/alunuz/
@@ -22,12 +22,12 @@ meteor
 ```
 
 <a name="contribuindo"></a>
-### Contribuindo
+## Contribuindo
 
 Em [Issues](https://github.com/CodeForBrazil/alunuz/issues) existe uma lista de itens a serem feitos ou corrigidos, sinta-se livre para contribuido com o projeto. :)
 
 <a name="deploy"></a>
-### Deploy
+## Deploy
 
 ```shell
 cd alunuz
