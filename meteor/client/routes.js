@@ -4,11 +4,15 @@ Router.configure({
     notFoundTemplate: 'notFound'
 });
 
-// Rota principal
+// Landpage
 Router.route('/', function() {
     this.render('landpage');
 }, { name: 'landpage' });
 
+// Sistema
+Router.route('/system', function() {
+    this.render('system');
+}, { name: 'system' });
 
 // Professores
 ProfessorController = RouteController.extend({

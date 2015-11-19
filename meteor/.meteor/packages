@@ -35,3 +35,9 @@ insecure
 autopublish
 kevohagan:sweetalert
 chrismbeckett:toastr
+
+# UMBRELLA
+alunuz:ui
+
+# FRONT
+natestrauser:animate-css

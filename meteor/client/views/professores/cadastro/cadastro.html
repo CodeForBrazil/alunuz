@@ -4,26 +4,57 @@
             <h1>Novo Professor</h1>
 
             <form v-on:submit.prevent="salvar">
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.nome }">
-                    <label for="nome">Nome</label>
-                    <input type="text" v-model="form.nome" class="form-control" id="nome" autofocus>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.nome }">
+                            <label for="nome">Nome</label>
+                            <input type="text" v-model="form.nome" class="form-control" id="nome" autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.senha }">
+                            <label for="senha">Senha</label>
+                            <input type="password" v-model="form.senha" class="form-control" id="senha" autofocus>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.matricula }">
-                    <label for="matricula">Matricula</label>
-                    <input type="text" v-model="form.matricula" class="form-control" id="matricula">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.email }">
+                            <label for="email">E-mail</label>
+                            <input type="text" v-model="form.email" class="form-control" id="email">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.cpf }">
+                            <label for="cpf">CPF</label>
+                            <input type="text" v-model="form.cpf" class="form-control" id="cpf">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.cpf }">
-                    <label for="cpf">CPF</label>
-                    <input type="text" v-model="form.cpf" class="form-control" id="cpf">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.matricula }">
+                            <label for="matricula">Matricula</label>
+                            <input type="text" v-model="form.matricula" class="form-control" id="matricula">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.carreira }">
+                            <label for="carreira">Carreira</label>
+                            <input type="text" v-model="form.carreira" class="form-control" id="carreira">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.cargo }">
+                            <label for="cargo">Cargo</label>
+                            <input type="text" v-model="form.cargo" class="form-control" id="cargo">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.telefone }">
-                    <label for="telefone">Telefone</label>
-                    <input type="text" v-model="form.telefone" class="form-control" id="telefone">
-                </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.email }">
-                    <label for="email">Email</label>
-                    <input type="text" v-model="form.email" class="form-control" id="email">
-                </div>
+
+
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group" v-bind:class="{ 'has-error' : !validation.endereco }">
@@ -38,61 +69,72 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.carreira }">
-                    <label for="carreira">Carreira</label>
-                    <input type="text" v-model="form.carreira" class="form-control" id="carreira">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.nivel }">
+                            <label for="nivel">Nivel</label>
+                            <input type="text" v-model="form.nivel" class="form-control" id="nivel">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.area_atuacao }">
+                            <label for="area_atuacao">Area de Atuação</label>
+                            <input type="text" v-model="form.area_atuacao" class="form-control" id="area_atuacao">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.orgao_lotacao }">
+                            <label for="orgao_lotacao">Orgão de Lotação</label>
+                            <input type="text" v-model="form.orgao_lotacao" class="form-control" id="orgao_lotacao">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.cargo }">
-                    <label for="cargo">Cargo</label>
-                    <input type="text" v-model="form.cargo" class="form-control" id="cargo">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.lotacao_trabalho }">
+                            <label for="lotacao_trabalho">Lotação de Trabalho</label>
+                            <input type="text" v-model="form.lotacao_trabalho" class="form-control" id="lotacao_trabalho">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.quadro }">
+                            <label for="quadro">Quadro</label>
+                            <input type="text" v-model="form.quadro" class="form-control" id="quadro">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.carga_semanal }">
+                            <label for="carga_semanal">Carga Semanal</label>
+                            <input type="text" v-model="form.carga_semanal" class="form-control" id="carga_semanal">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.nivel }">
-                    <label for="nivel">Nivel</label>
-                    <input type="text" v-model="form.nivel" class="form-control" id="nivel">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.formacao }">
+                            <label for="formacao">Formação</label>
+                            <input type="text" v-model="form.formacao" class="form-control" id="formacao">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.rit }">
+                            <label for="rit">RIT</label>
+                            <input type="text" v-model="form.rit" class="form-control" id="rit">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" v-bind:class="{ 'has-error' : !validation.permuta }">
+                            <label for="permuta">Permuta</label>
+                            <input type="text" v-model="form.permuta" class="form-control" id="permuta">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.area_atuacao }">
-                    <label for="area_atuacao">Area_atuacao</label>
-                    <input type="text" v-model="form.area_atuacao" class="form-control" id="area_atuacao">
-                </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.orgao_lotacao }">
-                    <label for="orgao_lotacao">Orgao_lotacao</label>
-                    <input type="text" v-model="form.orgao_lotacao" class="form-control" id="orgao_lotacao">
-                </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.lotacao_trabalho }">
-                    <label for="lotacao_trabalho">Lotacao_trabalho</label>
-                    <input type="text" v-model="form.lotacao_trabalho" class="form-control" id="lotacao_trabalho">
-                </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.quadro }">
-                    <label for="quadro">Quadro</label>
-                    <input type="text" v-model="form.quadro" class="form-control" id="quadro">
-                </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.carga_semanal }">
-                    <label for="carga_semanal">Carga_semanal</label>
-                    <input type="text" v-model="form.carga_semanal" class="form-control" id="carga_semanal">
-                </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.formacao }">
-                    <label for="formacao">Formacao</label>
-                    <input type="text" v-model="form.formacao" class="form-control" id="formacao">
-                </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.rit }">
-                    <label for="rit">RIT</label>
-                    <input type="text" v-model="form.rit" class="form-control" id="rit">
-                </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.permuta }">
-                    <label for="permuta">Permuta</label>
-                    <input type="text" v-model="form.permuta" class="form-control" id="permuta">
-                </div>
+
                 <div class="form-group" v-bind:class="{ 'has-error' : !validation.convenio }">
                     <label for="convenio">Convenio</label>
                     <input type="text" v-model="form.convenio" class="form-control" id="convenio">
-                </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.lat }">
-                    <label for="lat">Lat</label>
-                    <input type="text" v-model="form.lat" class="form-control" id="lat">
-                </div>
-                <div class="form-group" v-bind:class="{ 'has-error' : !validation.lng }">
-                    <label for="lng">Lng</label>
-                    <input type="text" v-model="form.lng" class="form-control" id="lng">
                 </div>
 
                 <button class="btn btn-success" v-bind:disabled="sending" type="submit"> <i class="fa fa-save"></i> Salvar</button>
@@ -124,21 +166,21 @@
             </thead>
             <tbody>
                 <tr v-for="doc in professores">
-                    <td>[[ doc.nome ]]</td>
-                    <td>[[ doc.matricula ]]</td>
-                    <td>[[ doc.cpf ]]</td>
-                    <td>[[ doc.telefone ]]</td>
-                    <td>[[ doc.email ]]</td>
-                    <td>[[ doc.endereco ]], [[ doc.numero ]]</td>
-                    <td>[[ doc.carreira ]]</td>
-                    <td>[[ doc.cargo ]]</td>
-                    <td>[[ doc.nivel ]]</td>
-                    <td>[[ doc.area_atuacao ]]</td>
-                    <td>[[ doc.orgao_lotacao ]]</td>
-                    <td>[[ doc.lotacao_trabalho ]]</td>
-                    <td>[[ doc.quadro ]]</td>
-                    <td>[[ doc.carga_semanal ]]</td>
-                    <td>[[ doc.formacao ]]</td>
+                    <td>[[ doc.profile.nome ]]</td>
+                    <td>[[ doc.profile.matricula ]]</td>
+                    <td>[[ doc.profile.cpf ]]</td>
+                    <td>[[ doc.profile.telefone ]]</td>
+                    <td>[[ doc.profile.email ]]</td>
+                    <td>[[ doc.profile.endereco ]], [[ doc.profile.numero ]]</td>
+                    <td>[[ doc.profile.carreira ]]</td>
+                    <td>[[ doc.profile.cargo ]]</td>
+                    <td>[[ doc.profile.nivel ]]</td>
+                    <td>[[ doc.profile.area_atuacao ]]</td>
+                    <td>[[ doc.profile.orgao_lotacao ]]</td>
+                    <td>[[ doc.profile.lotacao_trabalho ]]</td>
+                    <td>[[ doc.profile.quadro ]]</td>
+                    <td>[[ doc.profile.carga_semanal ]]</td>
+                    <td>[[ doc.profile.formacao ]]</td>
                     <td> <button v-on:click="editar(doc)" class="btn btn-info"><i class="fa fa-edit"></i></button> </td>
                     <td> <button v-on:click="deletar(doc)" class="btn btn-danger"><i class="fa fa-close"></i></button> </td>
                 </tr>

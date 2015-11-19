@@ -5,27 +5,28 @@ Template.professorCadastro.rendered = function(){
         data : {
             form : {
                 _id : '',
-                nome : '',
-                matricula : '',
-                cpf : '',
-                telefone : '',
-                email : '',
-                endereco : '',
-                numero : '',
-                carreira : '',
-                cargo : '',
-                nivel : '',
-                area_atuacao : '',
-                orgao_lotacao : '',
-                lotacao_trabalho : '',
-                quadro : '',
-                carga_semanal : '',
-                formacao : '',
-                rit : '',
-                permuta : '',
-                convenio : '',
-                lat : '',
-                lng : '',
+                nome : '123',
+                senha : '123',
+                matricula : '123',
+                cpf : '123',
+                telefone : '123',
+                email : '123',
+                endereco : '123',
+                numero : '123',
+                carreira : '123',
+                cargo : '123',
+                nivel : '123',
+                area_atuacao : '123',
+                orgao_lotacao : '123',
+                lotacao_trabalho : '123',
+                quadro : '123',
+                carga_semanal : '123',
+                formacao : '123',
+                rit : '123',
+                permuta : '123',
+                convenio : '123',
+                lat : '123',
+                lng : '123',
             },
             dirty : false,
             sending : false,
@@ -35,6 +36,7 @@ Template.professorCadastro.rendered = function(){
             validation : function (){
                 return {
                     nome : (this.dirty) ? !!this.form.nome.trim() : true,
+                    senha : (this.dirty) ? !!this.form.senha.trim() : true,
                     matricula : (this.dirty) ? this.form.matricula != '' : true,
                     cpf : (this.dirty) ? this.form.cpf != '' : true,
                     telefone : (this.dirty) ? !!this.form.telefone.trim() : true,
@@ -53,8 +55,6 @@ Template.professorCadastro.rendered = function(){
                     rit : (this.dirty) ? !!this.form.rit.trim() : true,
                     permuta : (this.dirty) ? !!this.form.permuta.trim() : true,
                     convenio : (this.dirty) ? !!this.form.convenio.trim() : true,
-                    lat : (this.dirty) ? this.form.lat != '' : true,
-                    lng : (this.dirty) ? this.form.lng != '' : true,
                 }
             },
             isValid : function (){
@@ -66,7 +66,7 @@ Template.professorCadastro.rendered = function(){
         },
         sync : {
             professores : function(){
-                return Professores.find()
+                return Meteor.users.find({ 'profile.kind' : 'professor' });
             }
         },
         methods : {
@@ -83,12 +83,16 @@ Template.professorCadastro.rendered = function(){
                     return this.update();
                 };
 
-                Professores.insert(_.omit(this.form, '_id'), function(error, _id){
+                var data = _.omit(this.form, ['_id', 'email', 'senha', '__proto__']);
+
+                Meteor.call("cadastrarProfessor", this.form.email, this.form.senha, data, function(error, result){
                     vue.sending = false;
                     vue.dirty = false;
 
-                    if (error){
-                        swal('Ocorreu um erro!', 'Não foi possível cadastrar o professor.', 'error');
+                    console.log([error, result]);
+
+                    if (error) {
+                        return swal('Ocorreu um erro!', 'Não foi possível cadastrar o professor.', 'error');
                     }
 
                     swal('Sucesso!', 'Professor cadastrado!', 'success');

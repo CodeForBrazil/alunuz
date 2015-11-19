@@ -22,6 +22,27 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group" v-bind:class="{ 'has-error' : !validation.endereco }">
+                        <label for="endereco">Modalidades de Ensino</label>
+                        <select name="" id="" class="form-control" multiple>
+                            <option value=""></option>
+                             <option value="infantil">educação infantil</option>
+                             <option value="end-fund-1-5">Ensino Fundamental 1º - 5º ano</option>
+                             <option value="ens-fund-6-9">Ensino Fundamental 6º - 9º ano</option>
+                             <option value="eja">EJA</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group" v-bind:class="{ 'has-error' : !validation.numero }">
+                        <label for="numero">Projetos Ofertados</label>
+                        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+
             <button class="btn btn-success" v-bind:disabled="sending" type="submit"> <i class="fa fa-save"></i> Salvar</button>
         </form>
 
